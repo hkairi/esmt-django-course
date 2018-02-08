@@ -1,6 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
 <div id="annonces">
   <h6>Mes annonces</h6>
   {% for annonce in annonces %}
-  {{ annonce.titre }}
+  <div class="annonce">
+    <div class="col-9">
+      {{ annonce.titre }}
+    </div>
+    <div class="col-3">
+      <a href="/annonces/{{ annonce.id }}">voir plus</a>
+    </div>
+  </div>
   {% endfor %}
 </div>
+{% endblock %}
