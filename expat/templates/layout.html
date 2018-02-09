@@ -1,18 +1,22 @@
 <html>
   <head>
-      <title>ESMT::Django</title>
+    <title>ESMT::Django</title>
+    <link rel="stylesheet" href="/static/bootstrap.css">
+    <link rel="stylesheet" href="/static/app.css">
+    <script src="/static/jquery.min.js"></script>
+    <script src="/static/nav.js"></script>
   </head>
   <body>
-    <div id="application">
-      <header>
-        <ul class="menu">
-          <li>
-            <a href="/">Annonces</a>
-          </li>
-        </ul>
-      </header>
-      {% block body %}
-      {% endblock %}
+    <div id="application" class="container">
+      <ul class="menu">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="#/categories">Catégories</a></li>
+      </ul>
+
+      <div>
+        {% block body %}
+        {% endblock %}
+      </div>
     </div>
   </body>
 </html>
