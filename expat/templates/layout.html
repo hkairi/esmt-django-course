@@ -1,21 +1,23 @@
+{% load static from staticfiles %}
 <html>
   <head>
     <title>ESMT::Django</title>
-    <link rel="stylesheet" href="/static/bootstrap.css">
-    <link rel="stylesheet" href="/static/app.css">
-    <script src="/static/jquery.min.js"></script>
-    <script src="/static/nav.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
   </head>
   <body>
     <div id="application" class="container">
-      <div class="menu row">
-        <div class="col-6">
-          <a href="/">Accueil</a>
+      <div id="menu" class="row">
+        <div class="col-8">
+          <a href="/">NOTRE APP</a>
+        </div>
+        <div class="col-4">
+          <a href="/annonces">Annonces</a>
           <a href="#/categories">Catégories</a>
         </div>
       </div>
 
-      <div>
+      <div id='yield'>
         {% block body %}
         {% endblock %}
       </div>
