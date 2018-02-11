@@ -7,6 +7,9 @@ class Categorie(models.Model):
     titre = models.CharField(max_length=50)
     slug = models.SlugField()
 
+    def __str__(self):
+        return self.titre
+
 
 class Annonce(models.Model):
     titre = models.CharField(max_length=50)
