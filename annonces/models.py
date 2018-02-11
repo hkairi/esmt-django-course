@@ -5,6 +5,7 @@ from django.db import models
 
 class Categorie(models.Model):
     titre = models.CharField(max_length=50)
+    photo = models.ImageField(default='default.png', blank=True)
     slug = models.SlugField()
 
     def __str__(self):
