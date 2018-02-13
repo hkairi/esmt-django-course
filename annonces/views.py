@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Annonce, Categorie
 
+from django.http import JsonResponse
 
 def index(request):
     context = {
@@ -33,3 +34,7 @@ def search(request):
         'annonces': Annonce.search(query)
     }
     return render(request, "results.html", context)
+
+
+def api(request):
+    return JsonResponse({'annonces': []})
