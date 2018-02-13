@@ -8,7 +8,11 @@
     {% for annonce in annonces %}
       <div class="annonce">
         <h5>{{ annonce.titre }}</h5>
-        <div>{{ annonce.description }}</div>
+        <div>
+          <span>Prix: {{ annonce.prix }} FCFA</span>
+          <br>
+          
+          {{ annonce.description }}</div>
       </div>
     {% endfor %}
   {% else %}

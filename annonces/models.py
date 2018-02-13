@@ -1,5 +1,5 @@
-from django.db import models
 
+from django.db import models
 # Create your models here.
 
 
@@ -14,6 +14,8 @@ class Categorie(models.Model):
 
 class Annonce(models.Model):
     titre = models.CharField(max_length=50)
+    prix = models.CharField(max_length=10)
+    photo = models.ImageField(default='default.png', blank=True)
     description = models.TextField(max_length=200, default='DESC')
     publiee = models.BooleanField(default=False)
     categorie = models.ForeignKey(Categorie, on_delete=models.CASCADE, blank=False)
@@ -23,7 +25,7 @@ class Annonce(models.Model):
 
     @classmethod
     def publiees(cls):
-        return cls.objects.filter(publiee=True).order_by('titre')
+        return cls.objects.filter(publiee=True).order_by('prix')
 
     @classmethod
     def liste_publiees(cls, catId):

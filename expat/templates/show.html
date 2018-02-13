@@ -1,8 +1,13 @@
 {% extends "layout.html" %}
 {% block body %}
-<div class="annonce">
-  {{ annonce.titre }}
-  <br>
-  {{ annonce.description }}
+<div class="row">
+  <div class="col-6">
+    <img src="{{ annonce.photo.url }}" alt="" class='col-11'>
+  </div>
+  <div class="col-6">
+    {{ annonce.titre }}
+    <br>
+    {{ annonce.description }}
+  </div>
 </div>
 {% endblock %}
