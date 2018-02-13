@@ -4,6 +4,13 @@
   <div id="annonces" class='row'>
     <div class="col-3">
       <h5 class='header'>Catégories</h5>
+      {% for cat in categories %}
+      <li>
+        <a href="{% url 'annonces:categorie' catId=cat.id %}">
+          {{ cat.titre }}
+        </a>
+      </li>
+      {% endfor %}
     </div>
     <div class="col-9">
       <h5>Les annonces</h5>
