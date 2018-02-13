@@ -20,3 +20,18 @@ class Annonce(models.Model):
 
     def __str__(self):
         return self.titre
+
+    @classmethod
+    def publiees(cls):
+        return cls.objects.filter(publiee=True).order_by('titre')
+
+    @classmethod
+    def liste_publiees(cls, catId):
+        return cls.publiees().filter(categorie_id=catId)
+
+    @classmethod
+    def search(klass, query):
+        if query == '':
+            return []
+        else:
+            return klass.publiees().filter(titre__contains=query)

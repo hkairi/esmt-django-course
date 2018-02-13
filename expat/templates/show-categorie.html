@@ -1,7 +1,18 @@
 {% extends 'layout.html' %}
 {% block body %}
 <div class="col-12">
-  {{  categorie }}
-  {{ annonces }}
+  {{ categorie }}
+  [{{ annonces_count }}]
+  <br>
+  {% if annonces_count > 0 %}
+    {% for annonce in annonces %}
+      <div class="annonce">
+        <h5>{{ annonce.titre }}</h5>
+        <div>{{ annonce.description }}</div>
+      </div>
+    {% endfor %}
+  {% else %}
+  <h6>Oups... y a rien ici</h6>
+  {% endif %}
 </div>
 {% endblock %}

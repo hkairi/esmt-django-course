@@ -8,12 +8,18 @@
   <body>
     <div id="application" class="container">
       <div id="menu" class="row">
-        <div class="col-8">
+        <div class="col-4">
           <a href="/">NOTRE APP</a>
         </div>
         <div class="col-4">
           <a href="/annonces">Annonces</a>
           <a href="#/categories">Catégories</a>
+        </div>
+        <div class="col-4">
+          <form action="/search" method="GET">
+            <input type="text" name="query" placeholder='Votre recherche ici'>
+            <input type="submit" value="Go">
+          </form>
         </div>
       </div>
 

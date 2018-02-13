@@ -18,8 +18,18 @@ def show(request, id):
 
 
 def categorie(request, catId):
+    _annonces = Annonce.liste_publiees(catId)
     context = {
         'categorie': Categorie.objects.get(id=catId),
-        'annonces': Annonce.objects.filter(categorie_id=catId, publiee=True)
+        'annonces': _annonces,
+        'annonces_count': len(_annonces)
     }
     return render(request, "show-categorie.html", context)
+
+
+def search(request):
+    query = request.GET.get('query', '')
+    context = {
+        'annonces': Annonce.search(query)
+    }
+    return render(request, "results.html", context)
