@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Annonce, Categorie
-
 from django.http import JsonResponse
+
+from .formulaires import CreationAnnonce
+
 
 def index(request):
     context = {
@@ -34,6 +36,22 @@ def search(request):
         'annonces': Annonce.search(query)
     }
     return render(request, "results.html", context)
+
+
+def addAnnonce(request):
+    formulaire = CreationAnnonce()
+    context = {
+        'formulaire': formulaire
+    }
+
+    if request.method == 'POST':
+        formulaire = CreationAnnonce(request.POST, request.FILES)
+        if formulaire.is_valid():
+            annonce = Annonce(**formulaire.cleaned_data)
+            annonce.save()
+            return redirect('annonces:details', id=annonce.id)
+    else:
+        return render(request, "addAnnonce.html", context)
 
 
 def api(request):

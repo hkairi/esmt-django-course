@@ -9,4 +9,5 @@ urlpatterns = [
     path('categories/<int:catId>/annonces', views.categorie, name='categorie'),
     path('annonces/', views.index),
     path('annonces/<int:id>', views.show, name='details'),
+    path('annonces/new', views.addAnnonce, name='addAnnonce'),
 ]

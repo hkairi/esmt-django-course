@@ -13,7 +13,14 @@
       {% endfor %}
     </div>
     <div class="col-9">
-      <h5>Les annonces</h5>
+      <div class="row">
+        <div class="col-6">
+          <h5>Les annonces</h5>
+        </div>
+        <div class="col-6">
+          <a href="{% url 'annonces:addAnnonce' %}">Déposer une annonce</a>
+        </div>
+      </div>
       {% for annonce in annonces %}
       <div class="row annonce">
         <div class="col-3">
