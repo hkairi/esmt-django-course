@@ -1,0 +1,22 @@
+[
+  {
+  "model": "annonces.categorie",
+  "pk": 2000,
+  "fields": {
+      "titre": "une catégorie",
+      "slug": "une-categorie"
+    }
+  },
+  {
+  "model": "annonces.annonce",
+  "pk": 2000,
+  "fields": {
+      "titre": "un autre titre fixture",
+      "prix": "25000",
+      "description": "fixture à essayer",
+      "publiee": false,
+      "categorie_id": 2000,
+      "date_publication": "2018-01-01"
+    }
+  }
+]
